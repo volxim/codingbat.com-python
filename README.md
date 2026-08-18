@@ -1,4 +1,4 @@
-# CodingBat Python
+# CodingBat Python Solutions
 > Recreational programming to level up my Python aura.
 
 Solutions and unit tests for [CodingBat](https://codingbat.com/python) Python exercises, written for practice.
