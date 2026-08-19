@@ -1,7 +1,6 @@
 import unittest
 
-from .solutions import sleep_in, monkey_trouble, sum_double
-
+from .solutions import sleep_in, monkey_trouble, sum_double, diff21
 
 class TestWarmup1(unittest.TestCase):
     def test_sleep_in(self):
@@ -45,8 +44,29 @@ class TestWarmup1(unittest.TestCase):
         ]
         for a, b, expected in cases:
             with self.subTest(a=a, b=b, c=expected):
-                self.assertEqual(sum_double(a,b), expected)
+                self.assertEqual(sum_double(a, b), expected)
 
+    def test_diff21(self):
+        diff_target = 21
+        cases = [
+            # (n, expected)
+            (-21, 42),
+            (-5, 26),
+            (-1, 22),
+            (0, 21),
+            (1, 20),
+            (7, 14),
+            (20, 1),
+            (21, 0),
+            (22, 2),
+            (25, 8),
+            (42, 42),
+
+        ]
+
+        for n, expected in cases:
+            with self.subTest(n=n, expected=expected):
+                self.assertEqual(diff21(n), expected)
 
 
 if __name__ == "__main__":
