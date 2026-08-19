@@ -1,3 +1,6 @@
+import unittest
+
+
 def sleep_in(weekday, vacation):
     return not weekday or vacation
 
@@ -17,3 +20,11 @@ def diff21(n):
     else:
         # n <= 21
         return 21 - n
+
+
+def parrot_trouble(talking, hour):
+        return talking and (hour < 7 or hour > 20)
+
+
+def makes10(a, b):
+    return True if a == 10 or b == 10 or a + b == 10 else False

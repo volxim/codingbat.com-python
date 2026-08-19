@@ -24,15 +24,13 @@ Each exercise includes the solution plus a small set of tests to confirm it beha
 - No external dependencies (standard library only)
 
 ## Running tests
-
+Run all tests in a module with unittest:
 ```bash
-pytest
+python -m unittest -v Warmup_1.test_solutions
 ```
-
-Or run a specific section:
-
+Or discover and run all tests in the repo:
 ```bash
-pytest warmup/
+python -m unittest discover -v
 ```
 
 ## Attribution
