@@ -1,7 +1,6 @@
 import unittest
-from sqlite3.dbapi2 import paramstyle
 
-from .warmup_1 import sleep_in, monkey_trouble, sum_double
+from .solutions import sleep_in, monkey_trouble, sum_double
 
 
 class TestWarmup1(unittest.TestCase):
