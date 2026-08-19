@@ -1,5 +1,6 @@
 import unittest
 
+
 class TestWarmup1(unittest.TestCase):
     def test_sleep_in(self):
         sleep = True
@@ -68,12 +69,12 @@ class TestWarmup1(unittest.TestCase):
 
     def test_makes10(self):
         cases_makes10 = [
-            (2,8, True),
-            (8,2, True),
-            (10,0, True),
-            (0,10, True),
-            (5,5, True),
-            (11,-1, True),
+            (2, 8, True),
+            (8, 2, True),
+            (10, 0, True),
+            (0, 10, True),
+            (5, 5, True),
+            (11, -1, True),
             (-1, 11, True),
             (12, -2, True),
             (-2, 12, True),
@@ -102,17 +103,33 @@ class TestWarmup1(unittest.TestCase):
             with self.subTest(a=a, b=b, expected=expected):
                 self.assertIs(makes10(a, b), expected)
 
+    def test_near_hundred(self):
+        cases_true = [
+            90, 91, 99, 100, 101, 109, 110, 190, 191, 199, 200, 201, 209, 210
+        ]
+
+        for n in cases_true:
+            with self.subTest(n=n):
+                self.assertEqual(near_hundred(n), True)
+
+        cases_false = [
+            0, 1, 89, 111, 189, 211, -89, -111, -189, -211
+        ]
+
+        for n in cases_false:
+            with self.subTest(n=n):
+                self.assertEqual(near_hundred(n), False)
 
 
 import os
 import sys
+
 if __name__ == "__main__":
     # Running directly as a script — add repo root to sys.path
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10
+    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred
 
     unittest.main()
 else:
     # Running as a module (python -m unittest ...) — relative import works
-    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10
-
+    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred
