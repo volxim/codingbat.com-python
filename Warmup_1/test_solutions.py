@@ -120,6 +120,19 @@ class TestWarmup1(unittest.TestCase):
             with self.subTest(n=n):
                 self.assertEqual(near_hundred(n), False)
 
+    def test_pos_neg(self):
+        cases = [
+            (1, -1, False, True),
+            (1, -1, True, False),
+            (1, 1, True, False),
+            (-1, -1, True, True),
+            (-1, -1, False, False),
+        ]
+
+        for a, b, negative, expected in cases:
+            with self.subTest(a=a, b=b, negative=negative, expected=expected):
+                self.assertEqual(pos_neg(a, b, negative), expected)
+
 
 import os
 import sys
@@ -127,9 +140,9 @@ import sys
 if __name__ == "__main__":
     # Running directly as a script — add repo root to sys.path
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred
+    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg
 
     unittest.main()
 else:
     # Running as a module (python -m unittest ...) — relative import works
-    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred
+    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg

@@ -32,3 +32,10 @@ def makes10(a, b):
 
 def near_hundred(n):
     return abs(100 - n) <= 10 or abs(200 - n) <= 10
+
+
+def pos_neg(a, b, negative):
+    if negative:
+        return a < 0 and b < 0
+    else:
+        return (a < 0 and b > 0) or (a > 0 and b < 0)
