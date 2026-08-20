@@ -47,3 +47,9 @@ def not_string(s: str) -> str:
 
 def missing_char(s: str, n: int):
     return s[:n] + s[n+1:]
+
+def front_back(s):
+  if len(s) <= 1:
+    return s
+  else:
+    return s[-1:]+s[1:-1]+s[0]

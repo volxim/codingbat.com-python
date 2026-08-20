@@ -161,6 +161,21 @@ class TestWarmup1(unittest.TestCase):
             with self.subTest(s=s, n=n, expected=expected):
                 self.assertEqual(missing_char(s, n), expected)
 
+    def test_front_back(self):
+        cases = [
+            ("hello", "oellh"),
+            ("a", "a"),
+            ("", ""),
+            ("ab", "ba"),
+            ("abc", "cba")
+        ]
+
+        for s, expected in cases:
+            with self.subTest(s=s, expected=expected):
+                self.assertEqual(
+                    front_back(s),
+                    expected)
+
 
 import os
 import sys
@@ -169,10 +184,10 @@ if __name__ == "__main__":
     # Running directly as a script — add repo root to sys.path
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, \
-        not_string, missing_char
+        not_string, missing_char, front_back
 
     unittest.main()
 else:
     # Running as a module (python -m unittest ...) — relative import works
     from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, not_string, \
-        missing_char
+        missing_char, front_back
