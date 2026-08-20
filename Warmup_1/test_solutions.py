@@ -133,6 +133,22 @@ class TestWarmup1(unittest.TestCase):
             with self.subTest(a=a, b=b, negative=negative, expected=expected):
                 self.assertEqual(pos_neg(a, b, negative), expected)
 
+    def test_not_string(self):
+        cases = [
+            ("foo", "not foo"),
+            ("", "not "),
+            ("notbar", "notbar"),
+            ("baznot", "not baznot"),
+            ("baznotinga", "not baznotinga")
+        ]
+
+        for s, expected in cases:
+            with self.subTest("wololo", s=s, expected=expected):
+                a = not_string(s)
+                self.assertEqual(
+                    not_string(s),
+                    expected)
+
 
 import os
 import sys
@@ -140,9 +156,10 @@ import sys
 if __name__ == "__main__":
     # Running directly as a script — add repo root to sys.path
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg
+    from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, \
+        not_string
 
     unittest.main()
 else:
     # Running as a module (python -m unittest ...) — relative import works
-    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg
+    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, not_string

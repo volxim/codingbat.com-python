@@ -39,3 +39,7 @@ def pos_neg(a, b, negative):
         return a < 0 and b < 0
     else:
         return (a < 0 and b > 0) or (a > 0 and b < 0)
+
+
+def not_string(s: str) -> str:
+    return s if s.startswith("not") else "not " + s
