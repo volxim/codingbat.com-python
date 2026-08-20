@@ -43,3 +43,7 @@ def pos_neg(a, b, negative):
 
 def not_string(s: str) -> str:
     return s if s.startswith("not") else "not " + s
+
+
+def missing_char(s: str, n: int):
+    return s[:n] + s[n+1:]

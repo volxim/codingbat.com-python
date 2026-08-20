@@ -149,6 +149,18 @@ class TestWarmup1(unittest.TestCase):
                     not_string(s),
                     expected)
 
+    def test_missing_char(self):
+        cases = [
+            ("your", 3, "you"),
+            ("yo", 0, "o"),
+            ("you", 2, "yo"),
+            ("h", 0, ""),
+        ]
+
+        for s, n, expected in cases:
+            with self.subTest(s=s, n=n, expected=expected):
+                self.assertEqual(missing_char(s, n), expected)
+
 
 import os
 import sys
@@ -157,9 +169,10 @@ if __name__ == "__main__":
     # Running directly as a script — add repo root to sys.path
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from Warmup_1.solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, \
-        not_string
+        not_string, missing_char
 
     unittest.main()
 else:
     # Running as a module (python -m unittest ...) — relative import works
-    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, not_string
+    from .solutions import sleep_in, monkey_trouble, sum_double, diff21, makes10, near_hundred, pos_neg, not_string, \
+        missing_char
